@@ -1,0 +1,28 @@
+{
+  "name": "mongo_schema",
+  "version": "1.0.0",
+  "description": "mongo schema",
+  "main": "source/main.js",
+  "scripts": {
+    "start": "node source/main.js",
+    "dev": "nodemon source/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graceDev1/mongo_schema.git"
+  },
+  "author": "Grace birindwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graceDev1/mongo_schema/issues"
+  },
+  "homepage": "https://github.com/graceDev1/mongo_schema#readme",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
