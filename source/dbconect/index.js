@@ -1,8 +1,22 @@
 const mongoose = require('mongoose');
 const config = require('config');
 
-const uri = config.get('mongoURI');
+// const internetAvalable = require('internet-available');
 
+let uri = '';
+
+// internetAvalable().then(()=>{
+//     uri = config.get('SERVER__URL');
+//     console.log('INTERNET')
+// })
+// .catch(()=>{
+//     uri = config.get('LOCALHOST__URL');
+//     console.log('no internet connection')
+    
+// })
+uri = config.get('LOCALHOST__URL');
+
+console.log(">>>>this is the URl",uri)
 
 
 

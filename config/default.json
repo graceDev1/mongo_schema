@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb://rachocer:Firewall12@mern-shard-00-00.v8ddv.mongodb.net:27017,mern-shard-00-01.v8ddv.mongodb.net:27017,mern-shard-00-02.v8ddv.mongodb.net:27017/invoice?ssl=true&replicaSet=atlas-ikc4mx-shard-0&authSource=admin&retryWrites=true&w=majority" 
+    "LOCALHOST__URL":"mongodb://127.0.0.1:27017/trydb",
+    "SERVER__URL":"mongodb://rachoder:Firewall12@mern-shard-00-00.v8ddv.mongodb.net:27017,mern-shard-00-01.v8ddv.mongodb.net:27017,mern-shard-00-02.v8ddv.mongodb.net:27017/trydb?ssl=true&replicaSet=atlas-ikc4mx-shard-0&authSource=admin&retryWrites=true&w=majority" 
 }
