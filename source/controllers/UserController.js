@@ -1,9 +1,7 @@
 const UserModel = require('../models/UserModel');
-// const request = require('express').request;
-// const response = require('express').response;
-// const nextFunction = require('express').nextFunction;
 
-const funct_save = (req,res) =>{
+
+const funct_save_user = (req,res) =>{
     const { name, email, password } = req.body;
     //validation
     if(!name || !email ||!password) return res.status(501).json({msg:'please fill all fields'});
@@ -36,6 +34,7 @@ const funct_save = (req,res) =>{
 }
 
 
+// fetch users 
 const funct_get_user = (req,res) => {
     UserModel.find()
     .then(data => {
@@ -44,4 +43,4 @@ const funct_get_user = (req,res) => {
     .catch(err => res.json({err}));
 }
 
-module.exports = {funct_save, funct_get_user};
+module.exports = {funct_save_user, funct_get_user};
