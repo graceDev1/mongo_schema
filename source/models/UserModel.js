@@ -16,7 +16,13 @@ const UserSchema = mongoose.Schema({
     create_at :{
         type : Date,
         default : Date.now
-    }
+    },
+    courses:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'courses'
+        }
+    ]
 });
 
 module.exports = mongoose.model('users',UserSchema);
