@@ -1,5 +1,5 @@
 const UserModel = require('../models/UserModel');
-
+const courseModel = require('../models/CourseModel');
 
 const funct_save_user = (req,res) =>{
     const { name, email, password } = req.body;
@@ -43,4 +43,48 @@ const funct_get_user = (req,res) => {
     .catch(err => res.json({err}));
 }
 
-module.exports = {funct_save_user, funct_get_user};
+const addCourseToUser = (req,res) =>{
+    let userID = req.params.id
+    let courses = req.body.courses
+    console.log(courses, userID)
+    courseModel.findById({_id:courses})
+    .then((course)=>{
+        if(!course){
+            return res.json({msg: 'course does not exists'})
+        }
+        // res.json({
+        //     id: course.id,
+        //     title: course.title
+        // })
+        UserModel.findByIdAndUpdate(userID,
+            {$push:{courses}},
+            {new: true, useFindAndModify:false }
+        ).
+        then((user) => res.status(200).json({
+            user: {
+                id: user.id,
+                name: user.name,
+                courses: user.courses
+            }
+        }))
+        .catch(err => console.log(err))
+    })
+    
+}
+
+
+// get user and populate course
+
+const getUserWithPopulateCourse = (req,res) => {
+    const id = req.params.id
+    UserModel.findById({_id:id}).populate('courses')
+    .then(user => res.status(200).json(user))
+    .catch(err => console.log(err));
+}
+
+module.exports = {
+    funct_save_user, 
+    funct_get_user, 
+    addCourseToUser,
+    getUserWithPopulateCourse
+};

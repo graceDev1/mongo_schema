@@ -8,6 +8,8 @@ app.use(express.json());
 
 app.use('/api/user', require('./routes/UserRoute'));
 
+app.use('/api/course', require('./routes/CourseRoute'));
+
 
 const port = process.env.PORT || 3000;
 
