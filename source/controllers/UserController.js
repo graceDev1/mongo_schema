@@ -46,16 +46,12 @@ const funct_get_user = (req,res) => {
 const addCourseToUser = (req,res) =>{
     let userID = req.params.id
     let courses = req.body.courses
-    console.log(courses, userID)
+    
     courseModel.findById({_id:courses})
     .then((course)=>{
         if(!course){
             return res.json({msg: 'course does not exists'})
         }
-        // res.json({
-        //     id: course.id,
-        //     title: course.title
-        // })
         UserModel.findByIdAndUpdate(userID,
             {$push:{courses}},
             {new: true, useFindAndModify:false }
